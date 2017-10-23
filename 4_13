@@ -1,0 +1,16 @@
+package TestOOP20171023;
+//Java SE8 技術手冊 林信良
+//頁數:4-13
+public class TryAutoBoxing {
+
+	public static void main(String[] args) {
+		Integer data1 = 10;
+		Integer data2 = 20;
+		
+		System.out.println(data1.doubleValue()/3);
+		System.out.println(data1.compareTo(data2));
+		//
+
+	}
+
+}
