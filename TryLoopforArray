@@ -1,0 +1,22 @@
+package TestOOP20171023;
+//Java SE8 技術手冊 林信良
+//頁數:4-18~4-19
+//取出陣列元素by迴圈&增強式迴圈
+public class TryLoopforArray {
+
+	public static void main(String[] args) {
+		//宣告一個陣列
+		int[]scores = {88,81,74,68,78,76,77,85,95,93};
+		
+		//法一:一般迴圈
+		for(int i=0;i<scores.length;i++) {
+			System.out.printf("學生分數:%d %n",scores[i]);
+		}
+		System.out.printf("================== %n");
+		//法二:增強型迴圈
+		for(int score:scores) {
+			System.out.printf("學生分數:%d %n",score);
+	}
+
+}
+}
