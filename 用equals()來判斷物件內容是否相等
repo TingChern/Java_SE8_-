@@ -1,0 +1,19 @@
+package TestOOP20171023;
+//Java SE8 技術手冊 林信良
+//頁數:4-17
+public class TryEquals {
+
+	public static void main(String[] args) {
+		Integer i1 = 200;
+		Integer i2 = 200;
+		
+		if(i1.equals(i2)) {
+			System.out.println("i1==i2");
+		}
+		else {
+			System.out.println("i1!=i2");
+		}
+
+	}
+
+}
