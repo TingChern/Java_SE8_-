@@ -1,0 +1,35 @@
+//遞迴練習
+//用java寫河內塔
+
+package tw.tingchen.oop;
+
+import java.util.Scanner;
+
+public class TowerofBrahmapuzzle {
+	static int time = 0;
+
+	void hanoi(int n, char A, char B, char C) {
+
+		if (n == 1) {
+			System.out.printf("%d: 將第 %d 個圓盤由 %c 移到 %c\n", ++time, n, A, C);
+		} else {
+
+			hanoi(n - 1, A, C, B);
+			System.out.printf("%d: 將第 %d 個圓盤由 %c 移到 %c\n", ++time, n, A, C);
+			hanoi(n - 1, B, A, C);
+		}
+	}
+
+	public static void main(String[] args) {
+
+		TowerofBrahmapuzzle Hanoi = new TowerofBrahmapuzzle();
+
+		int n = 10;
+
+		Hanoi.hanoi(n, 'A', 'B', 'C');
+
+		System.out.printf("移動 %d 層河內塔共需移動 %d 次\n", n, time);
+
+	}
+
+}
