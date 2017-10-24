@@ -1,0 +1,22 @@
+package tw.tingchen.oop;
+
+public class HW1024 {
+	// 費波南西數列1-48
+
+	public long fibo(int n) {
+		if (n == 0 || n == 1) {
+			return (n);
+		} else {
+			return fibo(n - 1) + fibo(n - 2);
+		}
+	}
+
+	public static void main(String[] args) {
+
+		HW1024 Fibo = new HW1024();
+		for (int i = 0; i <= 48; i++) {
+			System.out.println("f("+i+")="+Fibo.fibo(i));
+		}
+	}
+
+}
