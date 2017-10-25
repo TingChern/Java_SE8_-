@@ -1,0 +1,75 @@
+package tw.tingchen.oop;
+
+public class HW1025_1 {
+
+	public int NumGenerator() {
+		// 1~42亂數產生器
+		int numbers = ((int) (Math.random() * 42 + 1));
+		return numbers;
+	}
+
+	// static int[] oridata = new int[100];
+
+	public void OriNumbersShelf(int[] oridata) {
+		int count = 1;
+		for (int i = 0; i < oridata.length; i++) {
+			oridata[i] = NumGenerator();
+			System.out.printf("%2d:%6d\n", oridata[i], count);
+			count++;
+		}
+	}
+
+	public void PrintNumbers(int[] oridata) {
+		int count = 1;
+		for (int temp : oridata) {
+			System.out.printf("%2d:%6d\n", temp, count);
+			count++;
+		}
+	}
+
+	public void BiNumberSort(int[] oridata) {
+		int count;
+		do {
+			count = 0;
+			for (int i = 0; i < oridata.length - 1; i++) {
+				if (oridata[i] < oridata[i + 1]) {
+					int temp = oridata[i];
+					oridata[i] = oridata[i + 1];
+					oridata[i + 1] = temp;
+					count++;
+				}
+			}
+		} while (count != 0);
+	}
+
+	public void Times(int[] aftsort) {
+		for (int i = 0; i < aftsort.length; i++) {
+			int count = 1;
+			if (i != aftsort.length - 1) {
+				while (aftsort[i] == aftsort[i + 1]) {
+					count++;
+					i++;
+				}
+				System.out.printf("%2d:%6d\n", aftsort[i], count);
+			} else {
+				System.out.printf("%2d:%6d\n", aftsort[i], count);
+
+			}
+		}
+	}
+
+	public static void main(String[] Args) {
+
+		HW1025_1 hw = new HW1025_1();
+		int[] initial = new int[100];
+		hw.OriNumbersShelf(initial);
+
+		System.out.printf("=========================\n");
+		hw.BiNumberSort(initial);
+		hw.PrintNumbers(initial);
+		System.out.printf("=========================\n");
+		hw.Times(initial);
+
+	}
+
+}
