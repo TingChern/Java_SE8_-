@@ -1,25 +1,28 @@
-package tw.tingchen.oop;
+package tw.tingchen.java;
+
+import java.util.Arrays;
 
 public class HW1025_1 {
 
-	public int NumGenerator() {
-		// 1~42亂數產生器
-		int numbers = ((int) (Math.random() * 42 + 1));
+	private int NumGenerator(int bound) {// Random Number Generator
+		int numbers = (int) (Math.random() * bound + 1);
 		return numbers;
 	}
 
-	// static int[] oridata = new int[100];
-
-	public void OriNumbersShelf(int[] oridata) {
+	public void OriNumbersShelf(int[] oridata, int bound) {
+		// int[] oridata:the blank array to put in the random numbers
+		// int bound:the upper bound of random number generator
 		int count = 1;
 		for (int i = 0; i < oridata.length; i++) {
-			oridata[i] = NumGenerator();
-			System.out.printf("%2d:%6d\n", oridata[i], count);
+			// put the random numbers into the blank array "oridata"
+			oridata[i] = NumGenerator(bound);// call NumGenerator to generate the random numbers
+			System.out.printf("%2d:%6d\n",oridata[i] , count);
 			count++;
 		}
 	}
 
 	public void PrintNumbers(int[] oridata) {
+		// method to print each array elemets and index
 		int count = 1;
 		for (int temp : oridata) {
 			System.out.printf("%2d:%6d\n", temp, count);
@@ -45,30 +48,26 @@ public class HW1025_1 {
 	public void Times(int[] aftsort) {
 		for (int i = 0; i < aftsort.length; i++) {
 			int count = 1;
-			if (i != aftsort.length - 1) {
-				while (aftsort[i] == aftsort[i + 1]) {
-					count++;
-					i++;
-				}
-				System.out.printf("%2d:%6d\n", aftsort[i], count);
-			} else {
-				System.out.printf("%2d:%6d\n", aftsort[i], count);
-
+			while (i < aftsort.length - 1 && aftsort[i] == aftsort[i + 1]) {
+				count++;
+				i++;
 			}
+			System.out.printf("%2d:%6d\n", aftsort[i], count);
+
 		}
 	}
 
 	public static void main(String[] Args) {
 
-		HW1025_1 hw = new HW1025_1();
-		int[] initial = new int[100];
-		hw.OriNumbersShelf(initial);
+		long startTime = System.currentTimeMillis();
 
+		HW1025_1 hw = new HW1025_1();
+		int[] initial = new int[100000];
+		hw.OriNumbersShelf(initial, 42);
 		System.out.printf("=========================\n");
-		hw.BiNumberSort(initial);
-		hw.PrintNumbers(initial);
-		System.out.printf("=========================\n");
+		Arrays.sort(initial);
 		hw.Times(initial);
+		System.out.println("Using Time:" + (System.currentTimeMillis() - startTime) + " ms");
 
 	}
 
