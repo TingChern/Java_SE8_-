@@ -32,6 +32,8 @@ public class pokers {
 	}
 
 	public static void main(String[] args) {
+		
+		long startTime = System.currentTimeMillis();
 
 		pokers Poke = new pokers();
 
@@ -104,6 +106,8 @@ public class pokers {
 			System.out.printf("\n");
 
 		}
+		System.out.println("Using Time:" + (System.currentTimeMillis() - startTime) + " ms");
+
 	}
 
 }
